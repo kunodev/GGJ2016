@@ -1,0 +1,6 @@
+RitualBuster/Library
+RitualBuster/Temp
+RitualBuster/obj
+RitualBuster/*.csproj
+RitualBuster/*.suo
+RitualBuster/*.sln
