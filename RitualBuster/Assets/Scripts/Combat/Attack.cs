@@ -7,9 +7,9 @@ public class Attack
 	public Vector3 offset;
 	public Vector2 collSize;
 	public KeyCode[] Codes;
-	public Sprite sprite;
 	public float TimeAlive;
 	public float dmg;
+	public string animatorparam;
 
 	public bool Perform(GameObject source) {
 		for (int i = 0; i < Codes.Length; i++) {
@@ -22,7 +22,7 @@ public class Attack
 				comp.Source = source;
 				comp.Damage = dmg;
 				UnityEngine.Object.Destroy (result, TimeAlive);
-				result.GetComponent<SpriteRenderer> ().sprite = sprite;
+				source.GetComponent<Animator> ().SetTrigger (this.animatorparam);
 				result.GetComponent<BoxCollider2D> ().size = collSize;
 				return true;
 			}
