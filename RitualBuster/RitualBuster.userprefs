@@ -1,1 +1,19 @@
-﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="Assembly-CSharp-Editor.csproj" />
+﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="Assembly-CSharp-Editor.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Stuff\CombatController.cs">
+    <Files>
+      <File FileName="Assets\Scripts\GameSingleton.cs" Line="29" Column="23" />
+      <File FileName="Assets\Scripts\Stuff\EnemyGroup.cs" Line="12" Column="1" />
+      <File FileName="Assets\Scripts\Stuff\BarbieModePlayerController.cs" Line="29" Column="50" />
+      <File FileName="Assets\Scripts\Stuff\EncounterSprite.cs" Line="13" Column="52" />
+      <File FileName="Assets\Scripts\Utils\MonoBehaviorSingleton.cs" Line="14" Column="2" />
+      <File FileName="Assets\Scripts\Stuff\CombatController.cs" Line="14" Column="7" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Kuro\Documents\GGJ2016\RitualBuster\Assets\Scripts\Stuff\EnemyGroup.cs" line="7" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -32,10 +32,17 @@ public class GameSingleton : MonoBehaviour {
 		_colliders [3] = Instantiate (Resources.Load<GameObject> ("Bounds"));
 		_colliders [3].transform.position = new Vector3 (cam.transform.position.x, -cam.Extends ().y, 0);
 		_colliders [3].transform.rotation *= Quaternion.Euler (0, 0, 90);
+
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
+		player.GetComponent<CombatController> ().enabled = true;
+
 	}
 
-	public void StartSplash() {
+	public void StartSplash(GameObject collider) {
 		Splash.SetActive (true);
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<BarbieModePlayerController> ().enabled = false;
+		Destroy (collider);
+
 	}
 
 	public void OnFightFinished() {
