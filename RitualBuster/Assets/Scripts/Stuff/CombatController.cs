@@ -14,6 +14,7 @@ public class CombatController : CombatActor
 		float upDown = Input.GetAxis ("Vertical");
 		float leftRight = Input.GetAxis ("Horizontal");
 
+
 		Vector3 added = new Vector3 (leftRight * Time.deltaTime * XSpeed, upDown * Time.deltaTime * YSpeed, 0);
 		this.transform.position += added;
 		if (leftRight != 0f) {
