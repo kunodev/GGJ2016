@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 public class GameSingleton : MonoBehaviour {
 
@@ -7,13 +11,21 @@ public class GameSingleton : MonoBehaviour {
 	private float _normalSize;
 	private GameObject[] _colliders;
 	private Vector2 upperRight;
+	private List<GameObject>  players;
 
 	public GameObject Splash;
 
+	private EnemySpawner _spawner;
+	private List<GameObject> _enemies;
+
+	public event Action<GameObject, GameObject> DamageDealt;
+
 	// Use this for initialization
 	void Start () {
-		DontDestroyOnLoad (this.gameObject);
 		_normalSize = Camera.main.orthographicSize;
+
+		this.players = GameObject.FindGameObjectsWithTag ("Player").ToList();
+		this._spawner = new EnemySpawner ();
 	}
 
 	public void OnSplashFinished ()
@@ -36,6 +48,8 @@ public class GameSingleton : MonoBehaviour {
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		player.GetComponent<CombatController> ().enabled = true;
 
+		this._enemies = this._spawner.Spawning ();
+
 	}
 
 	public void StartSplash(GameObject collider) {
@@ -52,7 +66,27 @@ public class GameSingleton : MonoBehaviour {
 		}
 		foreach (var player in GameObject.FindGameObjectsWithTag("Player")) {
 			player.GetComponent<BarbieModePlayerController>().enabled = true;
+			player.GetComponent<CombatController> ().enabled = false;
 		}
 	}
 
+	public void OnCharDied (GameObject source, GameObject target)
+	{
+		if (target.tag.Equals ("Player")) {
+			this.players.Remove (target);
+			if (this.players.Count == 0) {
+				SceneManager.LoadScene ("start");
+			}
+		} else {
+			this._enemies.Remove (target);
+			if (this._enemies.Count == 0) {
+				this.OnFightFinished ();
+			}
+		}
+	}
+
+	public void OnDamageDealt (GameObject source, GameObject target)
+	{
+		this.DamageDealt (source, target);
+	}
 }
