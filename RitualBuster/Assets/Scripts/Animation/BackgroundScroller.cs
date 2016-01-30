@@ -37,6 +37,7 @@ public class BackgroundScroller : MonoBehaviour {
 			_next = _unused.getRandomAndRemove ();
 			_currIndexOffset++;
 			_next.transform.position = Vector3.forward + Vector3.right * RIGHTOFFSET * _currIndexOffset;
+			EnemyGroupSpawner.SpawnGroup (_next);
 		}
 	}
 }

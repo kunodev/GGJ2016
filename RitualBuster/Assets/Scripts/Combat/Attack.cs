@@ -16,7 +16,8 @@ public class Attack
 			if (Input.GetKeyDown (Codes [i])) {
 				GameObject prefab = Resources.Load<GameObject> ("Attack");
 				GameObject result = UnityEngine.Object.Instantiate (prefab);
-				result.transform.position = source.transform.position + offset;
+				int sign = source.GetComponent<CombatController> ().left ? -1 : 1;
+				result.transform.position = source.transform.position + offset * sign;
 				AttackComponent comp = result.GetComponent<AttackComponent> ();
 				comp.Source = source;
 				comp.Damage = dmg;

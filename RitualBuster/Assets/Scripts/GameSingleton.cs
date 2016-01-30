@@ -6,7 +6,7 @@ using System.Linq;
 using System;
 
 public class GameSingleton : MonoBehaviour {
-
+	
 	public float CombatOrthoSize;
 	private float _normalSize;
 	private GameObject[] _colliders;
@@ -20,12 +20,22 @@ public class GameSingleton : MonoBehaviour {
 
 	public event Action<GameObject, GameObject> DamageDealt;
 
+	public float MinXBound;
+	public float MaxXBound;
+	public float MaxYBound;
+	public float MinYBound;
+
+	public GameObject UpperBound;
+	public GameObject LowerBound;
+
 	// Use this for initialization
 	void Start () {
 		_normalSize = Camera.main.orthographicSize;
-
 		this.players = GameObject.FindGameObjectsWithTag ("Player").ToList();
 		this._spawner = new EnemySpawner ();
+		this._enemies = new List<GameObject> ();
+		this.MinYBound = LowerBound.transform.position.y;
+		this.MaxYBound = UpperBound.transform.position.y;
 	}
 
 	public void OnSplashFinished ()
@@ -33,22 +43,18 @@ public class GameSingleton : MonoBehaviour {
 		Camera cam = Camera.main;
 		cam.orthographicSize = CombatOrthoSize;
 
+		this.MinXBound = -cam.Extends ().x + cam.transform.position.x;
+		this.MaxXBound = cam.Extends ().x + cam.transform.position.x;
+
 		_colliders = new GameObject[4];
 		_colliders [0] = Instantiate (Resources.Load<GameObject> ("Bounds"));
-		_colliders [0].transform.position = new Vector3 (-cam.Extends ().x + cam.transform.position.x, 0, 0);
+		_colliders [0].transform.position = new Vector3 (MinXBound, 0, 0);
 		_colliders [1] = Instantiate (Resources.Load<GameObject> ("Bounds"));
-		_colliders [1].transform.position = new Vector3 (cam.Extends ().x + cam.transform.position.x, 0, 0);
-		_colliders [2] = Instantiate (Resources.Load<GameObject> ("Bounds"));
-		_colliders [2].transform.position = new Vector3 (cam.transform.position.x, cam.Extends ().y, 0);
-		_colliders [2].transform.rotation *= Quaternion.Euler (0, 0, 90);
-		_colliders [3] = Instantiate (Resources.Load<GameObject> ("Bounds"));
-		_colliders [3].transform.position = new Vector3 (cam.transform.position.x, -cam.Extends ().y, 0);
-		_colliders [3].transform.rotation *= Quaternion.Euler (0, 0, 90);
+		_colliders [1].transform.position = new Vector3 (MaxXBound, 0, 0);
 
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 		player.GetComponent<CombatController> ().enabled = true;
-
-		this._enemies = this._spawner.Spawning ();
+		_spawner.StartSpawning (this);
 
 	}
 
@@ -56,7 +62,6 @@ public class GameSingleton : MonoBehaviour {
 		Splash.SetActive (true);
 		GameObject.FindGameObjectWithTag ("Player").GetComponent<BarbieModePlayerController> ().enabled = false;
 		Destroy (collider);
-
 	}
 
 	public void OnFightFinished() {
@@ -79,7 +84,7 @@ public class GameSingleton : MonoBehaviour {
 			}
 		} else {
 			this._enemies.Remove (target);
-			if (this._enemies.Count == 0) {
+			if (this._enemies.Count == 0 && !this._spawner.InProgress) {
 				this.OnFightFinished ();
 			}
 		}
@@ -89,4 +94,11 @@ public class GameSingleton : MonoBehaviour {
 	{
 		this.DamageDealt (source, target);
 	}
+
+
+	public void AddEnemy (GameObject enemy)
+	{
+		this._enemies.Add (enemy);
+	}
+
 }

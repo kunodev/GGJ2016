@@ -7,6 +7,7 @@ public class CombatController : MonoBehaviour
 	public float XSpeed;
 	public float YSpeed;
 
+	public bool left;
 	[SerializeField]
 	public Attack[] Attacks;
 
@@ -16,6 +17,9 @@ public class CombatController : MonoBehaviour
 
 		Vector3 added = new Vector3 (leftRight * Time.deltaTime * XSpeed, upDown * Time.deltaTime * YSpeed, 0);
 		this.transform.position += added;
+		if (leftRight != 0f) {
+			this.left = leftRight < 0;
+		}
 
 		if (Vector3.Distance (added, Vector3.zero) <= 0.01) {
 			this.GetComponent<SpriteRenderer> ().color = Color.white;

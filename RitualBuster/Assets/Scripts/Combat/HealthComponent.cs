@@ -6,11 +6,6 @@ public class HealthComponent : MonoBehaviour {
 	public float MaxHealth;
 	public float CurrentHealth;
 
-	public void Start() {
-		this.CurrentHealth = MaxHealth;
-
-	}
-
 	public float HealthPercentage {
 		get {
 			return CurrentHealth / MaxHealth;
