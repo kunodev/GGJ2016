@@ -2,12 +2,11 @@
 using UnityEngine;
 
 
-public class CombatController : MonoBehaviour
+public class CombatController : CombatActor
 {
 	public float XSpeed;
 	public float YSpeed;
 
-	public bool left;
 	[SerializeField]
 	public Attack[] Attacks;
 
