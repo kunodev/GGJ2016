@@ -30,12 +30,11 @@ public class Knockback : MonoBehaviour {
 		Rigidbody2D rigidBodyTarget = target.GetComponent<Rigidbody2D> ();
 		Vector2 force = new Vector2 (Mathf.Pow(KnockbackForce, KnockbackData[target].second), 0);
 		if (actor.left) {
-				rigidBodyTarget.AddForce (force);
-				rigidBodyTarget.AddForce (-force);
-			} else {
-				rigidBodyTarget.AddForce (-force);
-				rigidBodyTarget.AddForce (force);
+			rigidBodySource.AddForce (force);
+			rigidBodyTarget.AddForce (-force);
+		} else {
+			rigidBodySource.AddForce (-force);
+			rigidBodyTarget.AddForce (force);
 		}
 	}
-
 }

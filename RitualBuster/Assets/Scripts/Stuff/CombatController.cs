@@ -11,6 +11,12 @@ public class CombatController : CombatActor
 	public Attack[] Attacks;
 
 	void Update() {
+		Animator anim = this.GetComponent<Animator>();
+		//Blocked by attacking
+		if (anim.GetCurrentAnimatorStateInfo (0).IsName (AnimatorConstants.KICK)
+		   || anim.GetCurrentAnimatorStateInfo (0).IsName (AnimatorConstants.PUNCH)) {
+			return;
+		}
 		float upDown = Input.GetAxis ("Vertical");
 		float leftRight = Input.GetAxis ("Horizontal");
 
@@ -21,13 +27,14 @@ public class CombatController : CombatActor
 		}
 
 		if (Vector3.Distance (added, Vector3.zero) <= 0.01) {
-			this.GetComponent<SpriteRenderer> ().color = Color.white;
+			this.GetComponent<Animator> ().SetBool (AnimatorConstants.MOVING, false);
 		} else {
-			this.GetComponent<SpriteRenderer> ().color = Color.yellow;
+			this.GetComponent<Animator> ().SetBool (AnimatorConstants.MOVING, true);
 		}
+
 		for (int i = 0; i < Attacks.Length; i++) {
 			if (Attacks [i].Perform (this.gameObject)) {
-				this.GetComponent<SpriteRenderer> ().color = Color.cyan;
+				return;
 			}
 		}
 	}

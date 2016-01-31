@@ -1,0 +1,119 @@
+fileFormatVersion: 2
+guid: d5a10a5837c0d0741926ac9d4d6fd62e
+timeCreated: 1454189410
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RONNYDERWICHSER_0
+    21300002: RONNYDERWICHSER_1
+    21300004: RONNYDERWICHSER_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: RONNYDERWICHSER_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 150
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 115}
+        - {x: -45, y: -91}
+        - {x: -39, y: -115}
+        - {x: 8, y: -115}
+        - {x: 19, y: 5}
+        - {x: 19, y: 113}
+        - {x: 14, y: 115}
+    - name: RONNYDERWICHSER_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 150
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: -114}
+        - {x: -9, y: -115}
+        - {x: -5, y: -115}
+        - {x: -5, y: -111}
+        - {x: -7, y: -109}
+        - {x: -10, y: -110}
+      - - {x: -67, y: -112}
+        - {x: 36, y: -112}
+        - {x: 36, y: 60}
+        - {x: 21, y: 115}
+        - {x: -30, y: 115}
+        - {x: -44, y: 102}
+        - {x: -67, y: 38}
+    - name: RONNYDERWICHSER_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 150
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 115}
+        - {x: -75, y: 23}
+        - {x: -75, y: -115}
+        - {x: 31, y: -115}
+        - {x: 31, y: 101}
+        - {x: 6, y: 115}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
