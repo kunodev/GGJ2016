@@ -1,16 +1,10 @@
 ﻿<Properties RefactoringSettings.EnableRefactorings="True" StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Animation\CameraScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\StateMachineScripts\BaseStateMachineScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\Combat\Knockback.cs" Line="33" Column="16" />
-      <File FileName="Assets\Scripts\Stuff\BarbieModePlayerController.cs" Line="24" Column="53" />
-      <File FileName="Assets\Scripts\Animation\AnimatorConstants.cs" Line="12" Column="1" />
-      <File FileName="Assets\Scripts\Stuff\CombatController.cs" Line="28" Column="3" />
-      <File FileName="Assets\Scripts\Stuff\Actor.cs" Line="8" Column="20" />
-      <File FileName="Assets\Scripts\Combat\Attack.cs" Line="31" Column="3" />
-      <File FileName="Assets\Scripts\Combat\AttackComponent.cs" Line="12" Column="52" />
-      <File FileName="Assets\Scripts\Combat\HealthComponent.cs" Line="14" Column="2" />
-      <File FileName="Assets\Scripts\Animation\CameraScript.cs" Line="4" Column="1" />
+      <File FileName="Assets\Scripts\StateMachineScripts\BaseStateMachineScript.cs" Line="17" Column="37" />
+      <File FileName="Assets\Scripts\StateMachineScripts\Idle.cs" Line="9" Column="61" />
+      <File FileName="Assets\Scripts\Animation\AnimatorConstants.cs" Line="9" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

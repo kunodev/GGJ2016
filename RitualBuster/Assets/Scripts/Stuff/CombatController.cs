@@ -7,9 +7,6 @@ public class CombatController : CombatActor
 	public float XSpeed;
 	public float YSpeed;
 
-	[SerializeField]
-	public Attack[] Attacks;
-
 	void Update() {
 		Animator anim = this.GetComponent<Animator>();
 		//Blocked by attacking
@@ -32,10 +29,9 @@ public class CombatController : CombatActor
 			this.GetComponent<Animator> ().SetBool (AnimatorConstants.MOVING, true);
 		}
 
-		for (int i = 0; i < Attacks.Length; i++) {
-			if (Attacks [i].Perform (this.gameObject)) {
-				return;
-			}
+		KeyCodeConfigurable[] attackTriggers = GetComponents<KeyCodeConfigurable> ();
+		for (int i = 0; i < attackTriggers.Length; i++) {
+			attackTriggers [i].CheckKeyDown ();
 		}
 	}
 }

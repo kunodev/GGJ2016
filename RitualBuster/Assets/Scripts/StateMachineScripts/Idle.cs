@@ -5,8 +5,9 @@ public class Idle : BaseStateMachineScript {
 
 	 // Idle feels like a thinking state 
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+		base.OnStateEnter (animator, stateInfo, layerIndex);
 		animator.SetFloat (AnimatorConstants.MOVING, 0.25f + Random.value);
-		animator.SetFloat (AnimatorConstants.ORTHO Random.value - 0.25f, 
+		animator.SetFloat (AnimatorConstants.ORTHO, Random.value - 0.25f);
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

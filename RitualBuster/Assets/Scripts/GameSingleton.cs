@@ -18,7 +18,7 @@ public class GameSingleton : MonoBehaviour {
 	private EnemySpawner _spawner;
 	private List<GameObject> _enemies;
 
-	public event Action<GameObject, GameObject> DamageDealt;
+	public event Action<GameObject, GameObject, float> DamageDealt;
 
 	public float MinXBound;
 	public float MaxXBound;
@@ -84,15 +84,17 @@ public class GameSingleton : MonoBehaviour {
 			}
 		} else {
 			this._enemies.Remove (target);
+			target.GetComponent<Animator> ().enabled = false;
+			target.transform.rotation = Quaternion.Euler (0, 0, 90);
 			if (this._enemies.Count == 0 && !this._spawner.InProgress) {
 				this.OnFightFinished ();
 			}
 		}
 	}
 
-	public void OnDamageDealt (GameObject source, GameObject target)
+	public void OnDamageDealt (GameObject source, GameObject target, float dmg)
 	{
-		this.DamageDealt (source, target);
+		this.DamageDealt (source, target, dmg );
 
 	}
 

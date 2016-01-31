@@ -8,7 +8,7 @@ public class AttackComponent : MonoBehaviour {
 
 	public void OnTriggerEnter2D(Collider2D otherCollider)  {
 		if (!otherCollider.tag.Equals (Source.tag)) {
-			MonoBehaviorSingleton<GameSingleton>.Instance.OnDamageDealt (Source, otherCollider.gameObject);
+			MonoBehaviorSingleton<GameSingleton>.Instance.OnDamageDealt (Source, otherCollider.gameObject, Damage);
 			otherCollider.GetComponent<HealthComponent> ().Damage (Damage, Source);
 		}
 
