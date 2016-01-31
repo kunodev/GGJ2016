@@ -14,7 +14,7 @@ public class Knockback : MonoBehaviour {
 		MonoBehaviorSingleton<GameSingleton>.Instance.DamageDealt += OnDamageDealt;
 	}
 
-	public void OnDamageDealt(GameObject source, GameObject target) {
+	public void OnDamageDealt(GameObject source, GameObject target, float dmg) {
 		if (!KnockbackData.ContainsKey (target)) {
 			KnockbackData.Add (target, new Tuple<float, int> ());
 		}

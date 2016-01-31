@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveTowards : BaseStateMachineScript {
+public class MoveAway : BaseStateMachineScript {
 
-	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+
+	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		base.OnStateEnter (animator, stateInfo, layerIndex);
 		animator.SetFloat (AnimatorConstants.MOVING,Random.value);
@@ -16,7 +17,7 @@ public class MoveTowards : BaseStateMachineScript {
 		GameObject target = en.Target;
 		Vector3 fromTo = target.transform.position - animator.transform.position;
 		Vector3 added = fromTo.normalized * en.Speed * Time.deltaTime;
-		animator.transform.position += added;
+		animator.transform.position -= added;
 
 		if (fromTo.magnitude <= animator.GetComponent<AttackQueue> ().Attack.collSize.magnitude / 2) {
 			animator.SetBool (AnimatorConstants.TOOCLOSE, true);
@@ -24,7 +25,6 @@ public class MoveTowards : BaseStateMachineScript {
 			animator.SetBool (AnimatorConstants.TOOCLOSE, false);
 		}
 	}
-
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//

@@ -17,7 +17,7 @@ public class DynamicHealthbar : MonoBehaviour {
 		MonoBehaviorSingleton<GameSingleton>.Instance.DamageDealt += OnDamageDone;
 	}
 
-	public void OnDamageDone(GameObject source, GameObject target) {
+	public void OnDamageDone(GameObject source, GameObject target, float dmg) {
 		if (source == AssociatedPlayer) {
 			this._timeWaited = 0;
 			this.gameObject.SetActive (true);
